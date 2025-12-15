@@ -1,0 +1,12 @@
+name: Exercice 3
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  jobs_ex3:
+    runs-on: ubuntu-latest
+
+    steps:
+    - run : echo "Je m'exécute toutes les 5 minutes"
