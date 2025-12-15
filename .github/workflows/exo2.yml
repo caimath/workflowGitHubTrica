@@ -1,0 +1,18 @@
+# Vous devez déclencher le wrokflow lorsque les fichiers avec une extension « .yml » sont modifiés lors
+# d’une pull-request, sauf ceux qui ont un dossier parent nommé « test ».
+name: Exercice 2
+
+on:
+    pull_request:
+        branches:
+        - 'main'
+        paths:
+            - '**.yml'
+            - '!test/**'
+
+jobs:
+    job_ex2:
+        runs-on: ubuntu-latest
+
+        steps:
+        - run: echo "Je vérifie les fichiers yaml"
