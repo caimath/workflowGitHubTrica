@@ -1,0 +1,16 @@
+# Modifier ce workflow pour qu’il s’exécute chaque fois que du code est poussé sur une branche
+# (qu’importe laquelle) et également lors d’une pull-request mais uniquement sur la branche main. 
+name: Exercice 1
+
+on:
+    push:
+
+    pull_request:
+        branches:
+        - 'main'
+
+jobs:
+    job_ex1:
+        runs-on: ubuntu-latest
+        steps:
+        - run: echo "Je teste l'exercice 1"
