@@ -1,0 +1,12 @@
+name: exo5 - installer node
+
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: 'node: current'
+
+    steps: 
+    - uses: actions/setupnode@v6.1.0
+    - run: node -v
