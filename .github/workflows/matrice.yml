@@ -1,26 +1,25 @@
-name: Matrix
+name: exo5 - installer node
 
-on: [push]
-
+on:
+  workflow_dispatch:
+  
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - run: ./build.sh
+  node-ubuntu-matrix:
+    runs-on: ${{matrix.os}}
 
-  test:
-    needs: build
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        browser: [Chrome, Edge, Firefox]
-    steps:
-    - run: ./executeBrowserTest --browser=${{ matrix.browser }}
+        os: [ubuntu-20.04, ubuntu-22.04]
+        node-version: [16, 18, 20]
 
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
     steps:
-    - run: ./uploadRelease.sh
+    - name: Installer Node.js ${{matrix.node-version}}
+      uses: actions/setup-node@v6.1.0
+      with:
+        node-version: ${{matrix.node-version}}
+
+    - name: afficher version
+      run: |
+        echo "OS : ${{matrix.node-version}}
+        node -v
+        npm -v
