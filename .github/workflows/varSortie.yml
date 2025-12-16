@@ -20,4 +20,4 @@ jobs:
       - id: monStep
         run: echo "::set-output name=NOMVARIABLE::hello"
       - run: echo **${{ steps.monStep.outputs.NOMVARIABLE }}**
-      - run: echo ${{GITHUB_ACTOR}}
+      - run: echo $GITHUB_ACTOR
