@@ -1,0 +1,18 @@
+name: Variables d'environnement personnalisées
+on:
+  workflow_dispatch:
+
+jobs:
+  exemple-variables:
+    runs-on: ubuntu-latest
+    env:
+      MA_VARIABLE_PRENOM: "Alice"
+      MA_VARIABLE_NOM: "Bob"
+      MA_VARIABLE_MULTILIGNE: |
+        Bonjour à tous!
+    steps:
+      - name: Afficher les variables d'environnement personnalisées
+        run: |
+          echo "Prénom: $MA_VARIABLE_PRENOM"
+          echo "Nom: $MA_VARIABLE_NOM"
+          echo "Message multiligne: $MA_VARIABLE_MULTILIGNE"
