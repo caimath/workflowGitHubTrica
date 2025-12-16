@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Installer Node.js 18
-      uses: actions/setupnode@v6.1.0
+      uses: actions/setup-node@v6.1.0
       with:
         node-version: 18
 
