@@ -20,6 +20,6 @@ jobs:
 
     - name: afficher version
       run: |
-        echo "OS : ${{matrix.node-version}}
+        echo "OS : ${{matrix.node-version}}"
         node -v
         npm -v
